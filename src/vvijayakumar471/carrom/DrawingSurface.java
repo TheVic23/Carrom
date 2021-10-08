@@ -4,7 +4,6 @@ import vvijayakumar471.shapes.Circle;
 import vvijayakumar471.shapes.Line;
 import vvijayakumar471.shapes.Rectangle;
 import processing.core.PApplet;
-import vvijayakumar471.carrom.Board;
 
 
 public class DrawingSurface extends PApplet {
@@ -44,17 +43,28 @@ public class DrawingSurface extends PApplet {
 
 	}
 
-	public void mouseDragged() {
-		if (coin1.isPointInside(mouseX, mouseY)){
-			coin1.addVelX(2);
-			coin1.setShot(true);
+//	public void mouseDragged() {
+//		if (coin1.isPointInside(mouseX, mouseY)){
+//			coin1.addVelX(2);
+//			coin1.setShot(true);
+//		}
+//	}
+//	
+//	public void mouseReleased() {
+//		if (coin1.getShot() == true){
+//			coin1.setShot(false);
+//		}
+//	}
+	
+	// Called once after every time a mouse button is pressed
+	public void mousePressed() {
+		if (coin1.isPointInside(mouseX, mouseY)) {	// if the initial click is inside a coin
+			
 		}
 	}
 	
-	public void mouseReleased() {
-		if (coin1.getShot() == true){
-			coin1.setShot(false);
-		}
+	public void mouseClicked() {
+		
 	}
 
 }

@@ -59,16 +59,6 @@ public class Coin extends Circle {
 			bounced = true;
 		}
 
-//		if (l1 != null && motion.intersects(l1)) {
-//			bounceOff(l1);
-//			bounced = true;
-//		}
-//
-//		if (l2 != null && motion.intersects(l2)) {
-//			bounceOff(l2);
-//			bounced = true;
-//		}
-
 		if (bounced == false) {
 			this.translate(vx, vy);
 		}
