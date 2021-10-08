@@ -10,6 +10,7 @@ public class DrawingSurface extends PApplet {
 	
 	private Coin coin1;
 	private Line leftBorder, rightBorder, topBorder, downBorder;
+	private double initialMouseX, initialMouseY;
 
 	public DrawingSurface() {
 		coin1 = new Coin(20, 20, 20);
@@ -17,6 +18,8 @@ public class DrawingSurface extends PApplet {
 		rightBorder = new Line(250, 5, 250, 250);
 		topBorder = new Line(5, 5, 250, 5);
 		downBorder = new Line(5, 250, 250, 250);
+		initialMouseX = 0;
+		initialMouseY = 0;
 	}
 	
 	// The statements in the setup() function 
