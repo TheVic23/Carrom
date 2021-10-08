@@ -10,7 +10,9 @@ public class DrawingSurface extends PApplet {
 	
 	private Coin coin1;
 	private Line leftBorder, rightBorder, topBorder, downBorder;
+
 	private double initialMouseX, initialMouseY;
+	private boolean clickedCoin;
 
 	public DrawingSurface() {
 		coin1 = new Coin(20, 20, 20);
@@ -20,6 +22,7 @@ public class DrawingSurface extends PApplet {
 		downBorder = new Line(5, 250, 250, 250);
 		initialMouseX = 0;
 		initialMouseY = 0;
+		clickedCoin = false;
 	}
 	
 	// The statements in the setup() function 
@@ -46,28 +49,28 @@ public class DrawingSurface extends PApplet {
 
 	}
 
-//	public void mouseDragged() {
-//		if (coin1.isPointInside(mouseX, mouseY)){
-//			coin1.addVelX(2);
-//			coin1.setShot(true);
-//		}
-//	}
-//	
-//	public void mouseReleased() {
-//		if (coin1.getShot() == true){
-//			coin1.setShot(false);
-//		}
-//	}
 	
 	// Called once after every time a mouse button is pressed
 	public void mousePressed() {
-		if (coin1.isPointInside(mouseX, mouseY)) {	// if the initial click is inside a coin
-			
+//		System.out.println("Mouse is Pressed");
+		if (coin1.isPointInside(mouseX, mouseY) && clickedCoin == false) {	// if the initial click is inside a coin & you haven't clicked a coin
+			System.out.println("Click inside coin");
+			initialMouseX = mouseX;		// store inital mouse vals
+			initialMouseY = mouseY;
+			System.out.println("imx " + initialMouseX + " imy " + initialMouseY);
+			clickedCoin = true;
 		}
 	}
 	
-	public void mouseClicked() {
-		
+	// Called once every time the mouse moves and a mouse button is pressed
+	public void mouseDragged () {
+		System.out.println("Mouse Dragged");
+		if (clickedCoin == true) {	// if u clicked on a coin and released your mouse
+			System.out.println("Coin Clicked and released");
+			double diffX = mouseX - initialMouseX;	// how much mouse has been dragged
+			double diffY = mouseY - initialMouseY;
+			System.out.println("DX " + diffX + " DY " + diffY);
+		}
 	}
 
 }
